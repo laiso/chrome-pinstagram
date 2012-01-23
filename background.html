@@ -1,0 +1,16 @@
+<html>
+<body>
+
+<a href="spec/spec.html" target="_blank">SPEC</a>
+
+
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+<script type="text/javascript" src="src/app.js"></script>
+<script>
+    chrome.browserAction.onClicked.addListener(function(tab) {
+        window.open('upload.html');
+    });
+</script>
+</body>
+</html>
+

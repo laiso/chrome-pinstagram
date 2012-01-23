@@ -1,0 +1,28 @@
+{
+  "name": "Pinstagram",
+  "version": "0.1.4",
+  "description": "A Chrome extension for upload the photo to Instagram without  iPhone devices.",
+  "icons": {
+    "16": "images/Icon150.png",
+    "48": "images/Icon150.png",
+    "128": "images/Icon150.png"
+  },
+  "permissions": [
+     "tabs"
+  ],
+  "background_page": "background.html",
+  "content_scripts": [
+      {
+        "matches": ["http://instagram.com/api/v1/media/upload/"],
+        "js": ["script/retrieve.js"]
+      },
+      {
+        "matches": ["https://instagram.com/api/v1/media/configure/"],
+        "js": ["script/redirect.js"]
+      }
+  ],
+  "options_page": "options.html",
+    "browser_action": {
+        "default_icon": "images/Icon150.png"
+    }
+}

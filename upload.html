@@ -1,0 +1,39 @@
+<html>
+<body>
+
+<div>
+    <p>[memo] You can upload JPG and JPEG file only.</p>
+    <form method="POST" enctype="multipart/form-data" action="http://instagram.com/api/v1/media/upload/" accept="*/*">
+        <input type="file" id="photo" name="photo">
+        <input type="hidden" id="device_timestamp" name="device_timestamp">
+        <input type="submit" value="upload"/>
+    </form>
+</div>
+
+<div>
+    <img id="preview">
+</div>
+
+<script type="text/javascript" src="src/app.js"></script>
+<script>
+    var onLoad = function(){
+        document.getElementById('device_timestamp').value = Date.now();
+
+        document.getElementById('photo').addEventListener('change', function (e) {
+            var photo = e.target.files[0];
+            if(!photo){
+                return;
+            }
+
+            if(window.URL == undefined){
+                window.URL = window.webkitURL;
+            }
+            var preview = document.getElementById('preview');
+            var url = window.URL.createObjectURL(photo);
+            preview.src = url;
+        });
+    };
+    window.addEventListener('load', onLoad);
+</script>
+</body>
+</html>
